@@ -133,6 +133,12 @@ fi
 execute_ray_test dpgansimulator_wwt "${ANALYTICS_ZOO_ROOT}/pyzoo/zoo/chronos/examples/simulator/dpgansimulator_wwt.py --datadir ${ANALYTICS_ZOO_ROOT}/pyzoo/zoo/chronos/examples/simulator/data_train_small.npz --epoch 1 --plot_figures False"
 time15=$?
 
+execute_ray_test onnx_autotsestimator_nyc_taxi "${ANALYTICS_ZOO_ROOT}/pyzoo/zoo/chronos/examples/onnx/onnx_autotsestimator_nyc_taxi.py"
+time16=$?
+
+execute_ray_test onnx_forecaster_network_traffic "${ANALYTICS_ZOO_ROOT}/pyzoo/zoo/chronos/examples/onnx/onnx_forecaster_network_traffic.py"
+time17=$?
+
 echo "#1 rl_pong time used:$time1 seconds"
 echo "#2 sync_parameter_server time used:$time2 seconds"
 echo "#3 async_parameter_server time used:$time3 seconds"
@@ -148,5 +154,7 @@ echo "#12 autolstm_nyc_taxi time used:$time12 seconds"
 echo "#13 autoprophet_nyc_taxi time used:$time13 seconds"
 echo "#14 autots_nyc_taxi time used:$time14 seconds"
 echo "#15 dpgansimulator_wwt time used:$time15 seconds"
+echo "#16 onnx_autotsestimator time used:$time16 seconds"
+echo "#17 onnx_forecaster_network_traffic used:$time17 seconds"
 
 clear_up
